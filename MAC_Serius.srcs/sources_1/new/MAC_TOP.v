@@ -343,15 +343,22 @@ assign	unused = { S_AXI_AWPROT, S_AXI_ARPROT,
 reg [31:0] txBuff[0:399];
 reg [31:0] rxBuff[0:399];
 reg [10:0]txLeght, rxLeght;
+reg [2:0] txState,rxState;
 
 always @( posedge S_AXI_ACLK )begin
 if (!S_AXI_ARESETN) begin
     
 end
 else begin
-    if(slv_mem[511][0]==1'b1) begin
-        txLeght<=slv_mem[510][10:0];
-    end 
+    case(txState)
+        3'b0: begin   
+            if(slv_mem[511][0]==1'b1) begin
+                txLeght<=slv_mem[510][10:0];
+            end
+        end
+        default: txState<=0;
+    endcase
+   
 end
 if (!readyWrite) begin
         
