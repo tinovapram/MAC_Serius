@@ -31,7 +31,11 @@ set_property ip_repo_paths d:/virtex/fpga/mac_serius [current_project]
 update_ip_catalog
 set_property ip_output_repo d:/Virtex/FPGA/MAC_Serius/MAC_Serius.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_verilog -library xil_defaultlib D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v
+read_mem D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/imports/new/crc_tab.mem
+read_verilog -library xil_defaultlib {
+  D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/imports/new/crc16.v
+  D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v
+}
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be

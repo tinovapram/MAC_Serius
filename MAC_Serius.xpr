@@ -61,6 +61,15 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
+      <File Path="$PSRCDIR/sources_1/imports/new/crc16.v">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../LiFi/FPGA/ip_repo/CRC16/CRC16.srcs/sources_1/new/crc16.v"/>
+          <Attr Name="ImportTime" Val="1566277072"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/new/MAC_TOP.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -70,6 +79,14 @@
       </File>
       <File Path="$PPRDIR/../../../virtex/fpga/mac_serius/component.xml">
         <FileInfo SFType="IPXACT"/>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/new/crc_tab.mem">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../LiFi/FPGA/ip_repo/CRC16/CRC16.srcs/sources_1/new/crc_tab.mem"/>
+          <Attr Name="ImportTime" Val="1566194681"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>

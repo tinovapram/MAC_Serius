@@ -285,10 +285,10 @@ always @(*)
 //
 wire readyWrite;
 assign readyWrite = !write_response_stall
-            // If we have a valid address, and
-            && valid_write_address
-            // If we have valid data
-            && valid_write_data;
+       // If we have a valid address, and
+       && valid_write_address
+       // If we have valid data
+       && valid_write_data;
 always @( posedge S_AXI_ACLK )
     // If the output channel isn't stalled, and
     if (readyWrite) begin
@@ -304,8 +304,8 @@ always @( posedge S_AXI_ACLK )
         if (wstrb[3])
             slv_mem[waddr[AW+ADDR_LSB-1:ADDR_LSB]][31:24]
                    <= wdata[31:24];
-    end 
-    
+    end
+
 
 //
 // The write response channel valid signal
@@ -342,28 +342,80 @@ assign	unused = { S_AXI_AWPROT, S_AXI_ARPROT,
 
 reg [31:0] txBuff[0:399];
 reg [31:0] rxBuff[0:399];
-reg [10:0]txLeght, rxLeght;
+reg [15:0]txLenght=0, rxLenght=0;
 reg [2:0] txState,rxState;
 
-always @( posedge S_AXI_ACLK )begin
-if (!S_AXI_ARESETN) begin
-    
-end
-else begin
-    case(txState)
-        3'b0: begin   
-            if(slv_mem[511][0]==1'b1) begin
-                txLeght<=slv_mem[510][10:0];
+localparam idle =3'b0;
+localparam start =3'b001;
+localparam crc =3'b110;
+localparam finish =3'b111;
+
+integer txi=0;
+
+reg [7:0] txCRCIn=0,rxCRCIn=0;
+wire [15:0] txCRCout=0,rxCRCout=0;
+wire CRCclock;
+reg txCRCreset=0,rxCRCreset=0;
+
+reg [15:0] txCRCi=0,rxCRCi=0;
+
+
+always @( posedge S_AXI_ACLK ) begin
+    if (!S_AXI_ARESETN) begin
+
+    end
+    else begin
+        case(txState)
+            idle: begin
+                if(slv_mem[511][0]==1'b1) begin
+                    txLenght<=slv_mem[510][15:0];
+                    txState<=start;
+                end
             end
-        end
-        default: txState<=0;
-    endcase
-   
-end
-if (!readyWrite) begin
-        
-end  
+            start: begin
+                if(txi<=txLenght) begin
+                    txBuff[txi/4]<=slv_mem[txi/4];
+                    txi<=txi+4;
+                end
+                else begin
+                    txState<=crc;
+                    txCRCreset<=1'b1;
+                    txCRCIn<=txBuff[0][31-:8];
+                    txCRCi<=1;
+                end
+            end
+            crc: begin
+                if(txCRCi<txLenght) begin
+                    txCRCi<=txCRCi+1;
+                    txCRCIn<=txBuff[txCRCi/4][31-((txCRCi%4)*8)-:8];
+                end
+                else begin
+                    
+                end
+            end
+            finish: begin
+            end
+            default:
+                txState<=0;
+        endcase
+
+    end
+    if (!readyWrite) begin
+
+    end
 end
 
+crc16 txCRC(
+          .dataIn(txCRCIn),
+          .crcOut(txCRCout),
+          .clock(CRCclock),
+          .reset(txCRCreset)
+      );
 
+crc16 rxCRC(
+          .dataIn(rxCRCIn),
+          .crcOut(rxCRCout),
+          .clock(CRCclock),
+          .reset(rxCRCreset)
+      );
 endmodule

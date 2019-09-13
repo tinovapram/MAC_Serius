@@ -17,9 +17,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 2524 
+INFO: Helper process launched with PID 7012 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 523.281 ; gain = 190.617
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 524.320 ; gain = 190.844
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'MAC_PalingSerius' [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:5]
 	Parameter OPT_READ_SIDEEFFECTS bound to: 1'b1 
@@ -29,7 +29,15 @@ INFO: [Synth 8-6157] synthesizing module 'MAC_PalingSerius' [D:/Virtex/FPGA/MAC_
 	Parameter AW bound to: 10 - type: integer 
 	Parameter DW bound to: 32 - type: integer 
 	Parameter MW bound to: 1024 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'MAC_PalingSerius' (1#1) [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:5]
+	Parameter idle bound to: 3'b000 
+	Parameter start bound to: 3'b001 
+	Parameter crc bound to: 3'b110 
+	Parameter finish bound to: 3'b111 
+INFO: [Synth 8-6157] synthesizing module 'crc16' [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/imports/new/crc16.v:23]
+INFO: [Synth 8-3876] $readmem data file './crc_tab.mem' is read successfully [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/imports/new/crc16.v:38]
+INFO: [Synth 8-6155] done synthesizing module 'crc16' (1#1) [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/imports/new/crc16.v:23]
+WARNING: [Synth 8-3848] Net CRCclock in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:357]
+INFO: [Synth 8-6155] done synthesizing module 'MAC_PalingSerius' (2#1) [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:5]
 WARNING: [Synth 8-3917] design MAC_PalingSerius has port S_AXI_BRESP[1] driven by constant 0
 WARNING: [Synth 8-3917] design MAC_PalingSerius has port S_AXI_BRESP[0] driven by constant 0
 WARNING: [Synth 8-3917] design MAC_PalingSerius has port S_AXI_RRESP[1] driven by constant 0
@@ -41,53 +49,75 @@ WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_ARPRO
 WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_ARPROT[1]
 WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_ARPROT[0]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 826.164 ; gain = 493.500
+Finished Synthesize : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 889.793 ; gain = 556.316
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 826.164 ; gain = 493.500
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 889.793 ; gain = 556.316
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7vx485tffg1761-2
+INFO: [Synth 8-802] inferred FSM for state register 'txState_reg' in module 'MAC_PalingSerius'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              001 |                              000
+                   start |                              010 |                              001
+                     crc |                              100 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'txState_reg' using encoding 'one-hot' in module 'MAC_PalingSerius'
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 826.164 ; gain = 493.500
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 1084.262 ; gain = 751.598
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:52 ; elapsed = 00:00:51 . Memory (MB): peak = 1162.203 ; gain = 828.727
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+------+----------------------+------------+----------+
-|      |RTL Partition         |Replication |Instances |
-+------+----------------------+------------+----------+
-|1     |MAC_PalingSerius__GB0 |           1|     35136|
-|2     |MAC_PalingSerius__GB1 |           1|     12960|
-|3     |MAC_PalingSerius__GB2 |           1|     16128|
-|4     |MAC_PalingSerius__GB3 |           1|     34512|
-|5     |MAC_PalingSerius__GB4 |           1|     27899|
-|6     |MAC_PalingSerius__GB5 |           1|     27490|
-|7     |MAC_PalingSerius__GB6 |           1|     31714|
-|8     |MAC_PalingSerius__GB7 |           1|     19843|
-|9     |MAC_PalingSerius__GB8 |           1|     19679|
-+------+----------------------+------------+----------+
++------+-------------------------------+------------+----------+
+|      |RTL Partition                  |Replication |Instances |
++------+-------------------------------+------------+----------+
+|1     |MAC_PalingSerius__GB0          |           1|     33600|
+|2     |muxpart__1026_MAC_PalingSerius |           1|     32736|
+|3     |MAC_PalingSerius__GB2          |           1|     24864|
+|4     |MAC_PalingSerius__GB3          |           1|     31104|
+|5     |MAC_PalingSerius__GB4          |           1|     38880|
+|6     |MAC_PalingSerius__GB5          |           1|     29965|
+|7     |MAC_PalingSerius__GB6          |           1|     11872|
+|8     |MAC_PalingSerius__GB7          |           1|     22711|
+|9     |MAC_PalingSerius__GB8          |           1|     21264|
+|10    |MAC_PalingSerius__GB9          |           1|     27237|
+|11    |MAC_PalingSerius__GB10         |           1|     26898|
++------+-------------------------------+------------+----------+
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 3     
++---XORs : 
+	   2 Input     16 Bit         XORs := 2     
+	   2 Input      8 Bit         XORs := 2     
 +---Registers : 
-	               32 Bit    Registers := 1026  
+	               32 Bit    Registers := 1426  
+	               16 Bit    Registers := 4     
 	               12 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
-	                1 Bit    Registers := 5     
+	                1 Bit    Registers := 6     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 1025  
+	   2 Input     32 Bit        Muxes := 1026  
+	   3 Input     16 Bit        Muxes := 1     
 	   2 Input     12 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 4106  
+	   3 Input      8 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 6     
+	   5 Input      3 Bit        Muxes := 1     
+	   8 Input      1 Bit        Muxes := 400   
+	   2 Input      1 Bit        Muxes := 12    
+	   3 Input      1 Bit        Muxes := 5     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -97,17 +127,42 @@ Start RTL Hierarchical Component Statistics
 Hierarchical RTL Component report 
 Module MAC_PalingSerius 
 Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 3     
 +---Registers : 
-	               32 Bit    Registers := 1026  
+	               32 Bit    Registers := 1426  
+	               16 Bit    Registers := 2     
 	               12 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
-	                1 Bit    Registers := 5     
+	                1 Bit    Registers := 6     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 1025  
+	   2 Input     32 Bit        Muxes := 1026  
+	   3 Input     16 Bit        Muxes := 1     
 	   2 Input     12 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 4106  
+	   3 Input      8 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 6     
+	   5 Input      3 Bit        Muxes := 1     
+	   8 Input      1 Bit        Muxes := 400   
+	   2 Input      1 Bit        Muxes := 12    
+	   3 Input      1 Bit        Muxes := 5     
+Module crc16__1 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     16 Bit         XORs := 1     
+	   2 Input      8 Bit         XORs := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
+Module crc16 
+Detailed RTL Component Info : 
++---XORs : 
+	   2 Input     16 Bit         XORs := 1     
+	   2 Input      8 Bit         XORs := 1     
++---Registers : 
+	               16 Bit    Registers := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -134,67 +189,84 @@ WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_AWPRO
 WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_ARPROT[2]
 WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_ARPROT[1]
 WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_ARPROT[0]
+INFO: [Synth 8-3886] merging instance 'txState_reg[2]' (FDE) to 'txState_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_1/\txi_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_1/\txi_reg[1] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:09 ; elapsed = 00:01:13 . Memory (MB): peak = 1111.281 ; gain = 778.617
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:34 ; elapsed = 00:01:38 . Memory (MB): peak = 1199.344 ; gain = 865.867
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|crc16       | p_0_out    | 256x11        | LUT            | 
++------------+------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+------+----------------------+------------+----------+
-|      |RTL Partition         |Replication |Instances |
-+------+----------------------+------------+----------+
-|1     |MAC_PalingSerius__GB0 |           1|     35136|
-|2     |MAC_PalingSerius__GB1 |           1|     12960|
-|3     |MAC_PalingSerius__GB2 |           1|     16128|
-|4     |MAC_PalingSerius__GB3 |           1|     34504|
-|5     |MAC_PalingSerius__GB4 |           1|     16576|
-|6     |MAC_PalingSerius__GB5 |           1|      2863|
-|7     |MAC_PalingSerius__GB6 |           1|       425|
-|8     |MAC_PalingSerius__GB7 |           1|       468|
-|9     |MAC_PalingSerius__GB8 |           1|       296|
-+------+----------------------+------------+----------+
++------+-------------------------------+------------+----------+
+|      |RTL Partition                  |Replication |Instances |
++------+-------------------------------+------------+----------+
+|1     |MAC_PalingSerius__GB0          |           1|     33600|
+|2     |muxpart__1026_MAC_PalingSerius |           1|     32736|
+|3     |MAC_PalingSerius__GB2          |           1|     24864|
+|4     |MAC_PalingSerius__GB3          |           1|     31104|
+|5     |MAC_PalingSerius__GB4          |           1|     38880|
+|6     |MAC_PalingSerius__GB5          |           1|     25872|
+|7     |MAC_PalingSerius__GB6          |           1|       449|
+|8     |MAC_PalingSerius__GB7          |           1|      1624|
+|9     |MAC_PalingSerius__GB8          |           1|       363|
+|10    |MAC_PalingSerius__GB9          |           1|      1267|
+|11    |MAC_PalingSerius__GB10         |           1|       423|
++------+-------------------------------+------------+----------+
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:11 ; elapsed = 00:01:16 . Memory (MB): peak = 1111.281 ; gain = 778.617
+Finished Timing Optimization : Time (s): cpu = 00:01:37 ; elapsed = 00:01:41 . Memory (MB): peak = 1199.344 ; gain = 865.867
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+------+----------------------+------------+----------+
-|      |RTL Partition         |Replication |Instances |
-+------+----------------------+------------+----------+
-|1     |MAC_PalingSerius__GB0 |           1|     33736|
-|2     |MAC_PalingSerius__GB1 |           1|      5400|
-|3     |MAC_PalingSerius__GB2 |           1|      6720|
-|4     |MAC_PalingSerius__GB3 |           1|     14400|
-|5     |MAC_PalingSerius__GB4 |           1|      9716|
-|6     |MAC_PalingSerius__GB5 |           1|      2863|
-|7     |MAC_PalingSerius__GB6 |           1|       425|
-|8     |MAC_PalingSerius__GB7 |           1|       468|
-|9     |MAC_PalingSerius__GB8 |           1|       296|
-+------+----------------------+------------+----------+
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |MAC_PalingSerius__GB0  |           1|     33096|
+|2     |MAC_PalingSerius__GB2  |           1|     10360|
+|3     |MAC_PalingSerius__GB3  |           1|     12960|
+|4     |MAC_PalingSerius__GB4  |           1|     16200|
+|5     |MAC_PalingSerius__GB7  |           1|      1335|
+|6     |MAC_PalingSerius__GB8  |           1|       363|
+|7     |MAC_PalingSerius__GB9  |           1|      1267|
+|8     |MAC_PalingSerius__GB10 |           1|       423|
++------+-----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:16 ; elapsed = 00:01:21 . Memory (MB): peak = 1111.281 ; gain = 778.617
+Finished Technology Mapping : Time (s): cpu = 00:01:42 ; elapsed = 00:01:48 . Memory (MB): peak = 1199.344 ; gain = 865.867
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+------+----------------------+------------+----------+
-|      |RTL Partition         |Replication |Instances |
-+------+----------------------+------------+----------+
-|1     |MAC_PalingSerius__GB0 |           1|     16164|
-|2     |MAC_PalingSerius__GB1 |           1|      4860|
-|3     |MAC_PalingSerius__GB2 |           1|      6048|
-|4     |MAC_PalingSerius__GB3 |           1|     12944|
-|5     |MAC_PalingSerius__GB4 |           1|      9666|
-|6     |MAC_PalingSerius__GB5 |           1|      2685|
-|7     |MAC_PalingSerius__GB6 |           1|       368|
-|8     |MAC_PalingSerius__GB7 |           1|       356|
-|9     |MAC_PalingSerius__GB8 |           1|       231|
-+------+----------------------+------------+----------+
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |MAC_PalingSerius__GB0  |           1|     15588|
+|2     |MAC_PalingSerius__GB2  |           1|      9324|
+|3     |MAC_PalingSerius__GB3  |           1|     11664|
+|4     |MAC_PalingSerius__GB4  |           1|     14580|
+|5     |MAC_PalingSerius__GB7  |           1|      1199|
+|6     |MAC_PalingSerius__GB8  |           1|       254|
+|7     |MAC_PalingSerius__GB9  |           1|       531|
+|8     |MAC_PalingSerius__GB10 |           1|       310|
++------+-----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start IO Insertion
 ---------------------------------------------------------------------------------
@@ -211,7 +283,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:24 ; elapsed = 00:01:28 . Memory (MB): peak = 1116.273 ; gain = 783.609
+Finished IO Insertion : Time (s): cpu = 00:01:49 ; elapsed = 00:01:56 . Memory (MB): peak = 1199.344 ; gain = 865.867
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -224,7 +296,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:24 ; elapsed = 00:01:29 . Memory (MB): peak = 1116.273 ; gain = 783.609
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:49 ; elapsed = 00:01:56 . Memory (MB): peak = 1199.344 ; gain = 865.867
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -236,25 +308,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:24 ; elapsed = 00:01:29 . Memory (MB): peak = 1116.273 ; gain = 783.609
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:50 ; elapsed = 00:01:57 . Memory (MB): peak = 1199.344 ; gain = 865.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:25 ; elapsed = 00:01:29 . Memory (MB): peak = 1116.273 ; gain = 783.609
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:50 ; elapsed = 00:01:57 . Memory (MB): peak = 1199.344 ; gain = 865.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:25 ; elapsed = 00:01:30 . Memory (MB): peak = 1116.273 ; gain = 783.609
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:50 ; elapsed = 00:01:57 . Memory (MB): peak = 1199.344 ; gain = 865.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:25 ; elapsed = 00:01:30 . Memory (MB): peak = 1116.273 ; gain = 783.609
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:50 ; elapsed = 00:01:57 . Memory (MB): peak = 1199.344 ; gain = 865.867
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -271,14 +343,14 @@ Report Cell Usage:
 |      |Cell  |Count |
 +------+------+------+
 |1     |BUFG  |     1|
-|2     |LUT2  |   110|
-|3     |LUT3  |   684|
-|4     |LUT4  |    29|
-|5     |LUT5  |  2899|
-|6     |LUT6  | 10623|
+|2     |LUT2  |     3|
+|3     |LUT3  |  3578|
+|4     |LUT4  |    15|
+|5     |LUT5  |   339|
+|6     |LUT6  | 10516|
 |7     |MUXF7 |  4352|
 |8     |MUXF8 |  2176|
-|9     |FDRE  | 32891|
+|9     |FDRE  | 32861|
 |10    |IBUF  |    63|
 |11    |OBUF  |    41|
 +------+------+------+
@@ -287,32 +359,32 @@ Report Instance Areas:
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       | 53869|
+|1     |top      |       | 53945|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:25 ; elapsed = 00:01:30 . Memory (MB): peak = 1116.273 ; gain = 783.609
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:50 ; elapsed = 00:01:57 . Memory (MB): peak = 1199.344 ; gain = 865.867
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 20 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:25 ; elapsed = 00:01:30 . Memory (MB): peak = 1116.273 ; gain = 783.609
-Synthesis Optimization Complete : Time (s): cpu = 00:01:25 ; elapsed = 00:01:30 . Memory (MB): peak = 1116.273 ; gain = 783.609
+Synthesis finished with 0 errors, 0 critical warnings and 21 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:50 ; elapsed = 00:01:58 . Memory (MB): peak = 1199.344 ; gain = 865.867
+Synthesis Optimization Complete : Time (s): cpu = 00:01:50 ; elapsed = 00:01:58 . Memory (MB): peak = 1199.344 ; gain = 865.867
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 6528 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 WARNING: [Netlist 29-101] Netlist 'MAC_PalingSerius' is not ideal for floorplanning, since the cellview 'MAC_PalingSerius' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1211.527 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1219.914 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-15 Infos, 21 Warnings, 0 Critical Warnings and 0 Errors encountered.
+23 Infos, 22 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:35 ; elapsed = 00:01:40 . Memory (MB): peak = 1211.527 ; gain = 885.594
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1211.527 ; gain = 0.000
+synth_design: Time (s): cpu = 00:02:00 ; elapsed = 00:02:08 . Memory (MB): peak = 1219.914 ; gain = 893.828
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1219.914 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/Virtex/FPGA/MAC_Serius/MAC_Serius.runs/synth_1/MAC_PalingSerius.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1211.527 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1219.914 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file MAC_PalingSerius_utilization_synth.rpt -pb MAC_PalingSerius_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Sep 12 14:13:21 2019...
+INFO: [Common 17-206] Exiting Vivado at Fri Sep 13 16:05:33 2019...
