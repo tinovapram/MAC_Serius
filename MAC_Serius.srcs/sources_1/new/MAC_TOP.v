@@ -284,8 +284,8 @@ always @(*)
         wdata = S_AXI_WDATA;
     end
 
-reg [31:0] txBuff[0:399];
-reg [31:0] rxBuff[0:399];
+reg [7:0] txBuff[0:1560];
+reg [7:0] rxBuff[0:1560];
 reg [31:0] txControl,rxControl;
 
 //
@@ -373,6 +373,9 @@ localparam idle =3'b0;
 localparam start =3'b001;
 localparam crc =3'b110;
 localparam finish =3'b111;
+
+localparam headerLenght;
+
 
 integer txi=0;
 
