@@ -102,6 +102,10 @@ localparam integer MW = 2**AW;
 //------------------------------------------------
 reg [DW-1:0]	slv_mem	[0:MW-1];
 
+initial begin
+    slv_mem[510]<=32'd400;
+end
+
 // I/O Connections assignments
 
 assign S_AXI_AWREADY	= axi_awready;
@@ -280,10 +284,15 @@ always @(*)
         wdata = S_AXI_WDATA;
     end
 
+reg [31:0] txBuff[0:399];
+reg [31:0] rxBuff[0:399];
+reg [31:0] txControl,rxControl;
+
 //
 // Actually (finally) write the data
 //
 wire readyWrite;
+integer iw=0;
 assign readyWrite = !write_response_stall
        // If we have a valid address, and
        && valid_write_address
@@ -305,6 +314,22 @@ always @( posedge S_AXI_ACLK )
             slv_mem[waddr[AW+ADDR_LSB-1:ADDR_LSB]][31:24]
                    <= wdata[31:24];
     end
+    else     if (!readyWrite) begin
+        for(iw=0;iw<400;iw=iw+1) begin
+            slv_mem[512+iw]<=rxBuff[iw];
+        end
+        slv_mem[511]<=txControl;
+        slv_mem[1023]<=rxControl;
+    end
+
+//    genvar jo;
+//    generate
+//    for (jo=0;jo<399;jo=jo+1)begin
+//        always @( posedge S_AXI_ACLK )
+//        if (!readyWrite)
+//            slv_mem[512+jo]<=rxBuff[jo];
+//        end
+//    endgenerate
 
 
 //
@@ -340,9 +365,8 @@ assign	unused = { S_AXI_AWPROT, S_AXI_ARPROT,
 // Verilator lint_on UNUSED
 
 
-reg [31:0] txBuff[0:399];
-reg [31:0] rxBuff[0:399];
-reg [15:0]txLenght=0, rxLenght=0;
+
+reg [15:0]txLenght=400, rxLenght=0;
 reg [2:0] txState,rxState;
 
 localparam idle =3'b0;
@@ -358,31 +382,33 @@ wire CRCclock;
 reg txCRCreset=0,rxCRCreset=0;
 
 reg [15:0] txCRCi=0,rxCRCi=0;
+reg [15:0] txCRCresult,rxCRCresult;
 
+reg [11:0] i;
 
-always @( posedge S_AXI_ACLK ) begin
+//urusan assign txBuff;
+always @( posedge S_AXI_ACLK ) begin //block A
     if (!S_AXI_ARESETN) begin
-
+        txi<=0;
+        txCRCreset<=1'b0;
     end
     else begin
         case(txState)
             idle: begin
                 if(slv_mem[511][0]==1'b1) begin
-                    txLenght<=slv_mem[510][15:0];
+                    txLenght<=slv_mem[510][15:0]; //Panjang data di register 510 MSB 16 bit
                     txState<=start;
+                    txControl<=slv_mem[511];
                 end
             end
             start: begin
-                if(txi<=txLenght) begin
-                    txBuff[txi/4]<=slv_mem[txi/4];
-                    txi<=txi+4;
+                for(i=1;i<1540;i=i+4) begin
+                    txBuff[i/4]<=slv_mem[i/4];
                 end
-                else begin
-                    txState<=crc;
-                    txCRCreset<=1'b1;
-                    txCRCIn<=txBuff[0][31-:8];
-                    txCRCi<=1;
-                end
+                txCRCreset<=1'b1;
+                txCRCIn<=txBuff[0][31-:8];
+                txCRCi<=1;
+                txState<=crc;
             end
             crc: begin
                 if(txCRCi<txLenght) begin
@@ -390,19 +416,21 @@ always @( posedge S_AXI_ACLK ) begin
                     txCRCIn<=txBuff[txCRCi/4][31-((txCRCi%4)*8)-:8];
                 end
                 else begin
-                    
+                    txCRCresult<=txCRCout;
+                    txCRCreset<=1'b0;
                 end
             end
             finish: begin
+                txControl[0]<=0;
             end
             default:
                 txState<=0;
         endcase
 
     end
-    if (!readyWrite) begin
-
-    end
+    //    if (!readyWrite) begin
+    //        slv_mem[511][0]<=1'b0;
+    //    end
 end
 
 crc16 txCRC(

@@ -17,9 +17,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx485t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx485t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7012 
+INFO: Helper process launched with PID 1328 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 524.320 ; gain = 190.844
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 522.754 ; gain = 190.801
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'MAC_PalingSerius' [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:5]
 	Parameter OPT_READ_SIDEEFFECTS bound to: 1'b1 
@@ -36,7 +36,109 @@ INFO: [Synth 8-6157] synthesizing module 'MAC_PalingSerius' [D:/Virtex/FPGA/MAC_
 INFO: [Synth 8-6157] synthesizing module 'crc16' [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/imports/new/crc16.v:23]
 INFO: [Synth 8-3876] $readmem data file './crc_tab.mem' is read successfully [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/imports/new/crc16.v:38]
 INFO: [Synth 8-6155] done synthesizing module 'crc16' (1#1) [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/imports/new/crc16.v:23]
-WARNING: [Synth 8-3848] Net CRCclock in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:357]
+WARNING: [Synth 8-6014] Unused sequential element txi_reg was removed.  [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:392]
+WARNING: [Synth 8-6014] Unused sequential element txCRCresult_reg was removed.  [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:419]
+WARNING: [Synth 8-3848] Net rxBuff[0] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[1] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[2] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[3] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[4] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[5] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[6] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[7] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[8] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[9] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[10] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[11] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[12] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[13] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[14] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[15] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[16] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[17] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[18] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[19] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[20] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[21] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[22] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[23] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[24] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[25] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[26] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[27] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[28] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[29] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[30] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[31] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[32] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[33] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[34] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[35] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[36] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[37] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[38] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[39] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[40] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[41] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[42] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[43] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[44] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[45] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[46] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[47] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[48] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[49] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[50] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[51] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[52] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[53] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[54] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[55] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[56] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[57] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[58] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[59] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[60] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[61] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[62] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[63] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[64] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[65] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[66] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[67] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[68] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[69] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[70] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[71] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[72] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[73] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[74] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[75] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[76] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[77] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[78] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[79] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[80] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[81] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[82] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[83] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[84] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[85] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[86] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[87] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[88] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[89] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[90] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[91] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[92] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[93] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[94] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[95] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[96] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[97] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[98] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+WARNING: [Synth 8-3848] Net rxBuff[99] in module/entity MAC_PalingSerius does not have driver. [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:288]
+INFO: [Common 17-14] Message 'Synth 8-3848' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-6155] done synthesizing module 'MAC_PalingSerius' (2#1) [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:5]
 WARNING: [Synth 8-3917] design MAC_PalingSerius has port S_AXI_BRESP[1] driven by constant 0
 WARNING: [Synth 8-3917] design MAC_PalingSerius has port S_AXI_BRESP[0] driven by constant 0
@@ -49,10 +151,10 @@ WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_ARPRO
 WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_ARPROT[1]
 WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_ARPROT[0]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 889.793 ; gain = 556.316
+Finished Synthesize : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 874.398 ; gain = 542.445
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 889.793 ; gain = 556.316
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 874.398 ; gain = 542.445
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
 ---------------------------------------------------------------------------------
@@ -69,55 +171,55 @@ INFO: [Synth 8-802] inferred FSM for state register 'txState_reg' in module 'MAC
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'txState_reg' using encoding 'one-hot' in module 'MAC_PalingSerius'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:52 ; elapsed = 00:00:51 . Memory (MB): peak = 1162.203 ; gain = 828.727
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:51 ; elapsed = 00:00:51 . Memory (MB): peak = 1129.789 ; gain = 797.836
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+------+-------------------------------+------------+----------+
-|      |RTL Partition                  |Replication |Instances |
-+------+-------------------------------+------------+----------+
-|1     |MAC_PalingSerius__GB0          |           1|     33600|
-|2     |muxpart__1026_MAC_PalingSerius |           1|     32736|
-|3     |MAC_PalingSerius__GB2          |           1|     24864|
-|4     |MAC_PalingSerius__GB3          |           1|     31104|
-|5     |MAC_PalingSerius__GB4          |           1|     38880|
-|6     |MAC_PalingSerius__GB5          |           1|     29965|
-|7     |MAC_PalingSerius__GB6          |           1|     11872|
-|8     |MAC_PalingSerius__GB7          |           1|     22711|
-|9     |MAC_PalingSerius__GB8          |           1|     21264|
-|10    |MAC_PalingSerius__GB9          |           1|     27237|
-|11    |MAC_PalingSerius__GB10         |           1|     26898|
-+------+-------------------------------+------------+----------+
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |MAC_PalingSerius__GB0  |           1|     33312|
+|2     |MAC_PalingSerius__GB1  |           1|     11710|
+|3     |MAC_PalingSerius__GB2  |           1|     13056|
+|4     |MAC_PalingSerius__GB3  |           1|     17227|
+|5     |MAC_PalingSerius__GB4  |           1|     31716|
+|6     |MAC_PalingSerius__GB5  |           1|     15637|
+|7     |MAC_PalingSerius__GB6  |           1|     12677|
+|8     |MAC_PalingSerius__GB7  |           1|     36367|
+|9     |MAC_PalingSerius__GB8  |           1|     46182|
+|10    |MAC_PalingSerius__GB9  |           1|     22929|
+|11    |MAC_PalingSerius__GB10 |           1|     24794|
+|12    |MAC_PalingSerius__GB11 |           1|     24283|
++------+-----------------------+------------+----------+
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 1     
 	   2 Input     16 Bit       Adders := 1     
 	   2 Input      5 Bit       Adders := 3     
 +---XORs : 
 	   2 Input     16 Bit         XORs := 2     
 	   2 Input      8 Bit         XORs := 2     
 +---Registers : 
-	               32 Bit    Registers := 1426  
+	               32 Bit    Registers := 1412  
 	               16 Bit    Registers := 4     
 	               12 Bit    Registers := 2     
 	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                1 Bit    Registers := 6     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 1026  
+	   2 Input     32 Bit        Muxes := 1428  
+	   3 Input     32 Bit        Muxes := 2     
 	   3 Input     16 Bit        Muxes := 1     
 	   2 Input     12 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 4106  
 	   3 Input      8 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
-	   5 Input      3 Bit        Muxes := 1     
-	   8 Input      1 Bit        Muxes := 400   
-	   2 Input      1 Bit        Muxes := 12    
-	   3 Input      1 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 8     
+	   3 Input      1 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -128,27 +230,26 @@ Hierarchical RTL Component report
 Module MAC_PalingSerius 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 1     
 	   2 Input     16 Bit       Adders := 1     
 	   2 Input      5 Bit       Adders := 3     
 +---Registers : 
-	               32 Bit    Registers := 1426  
+	               32 Bit    Registers := 1412  
 	               16 Bit    Registers := 2     
 	               12 Bit    Registers := 2     
 	                8 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                1 Bit    Registers := 6     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 1026  
+	   2 Input     32 Bit        Muxes := 1428  
+	   3 Input     32 Bit        Muxes := 2     
 	   3 Input     16 Bit        Muxes := 1     
 	   2 Input     12 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 4106  
 	   3 Input      8 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
-	   5 Input      3 Bit        Muxes := 1     
-	   8 Input      1 Bit        Muxes := 400   
-	   2 Input      1 Bit        Muxes := 12    
-	   3 Input      1 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 8     
+	   3 Input      1 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 2     
 Module crc16__1 
 Detailed RTL Component Info : 
 +---XORs : 
@@ -189,11 +290,8 @@ WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_AWPRO
 WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_ARPROT[2]
 WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_ARPROT[1]
 WARNING: [Synth 8-3331] design MAC_PalingSerius has unconnected port S_AXI_ARPROT[0]
-INFO: [Synth 8-3886] merging instance 'txState_reg[2]' (FDE) to 'txState_reg[1]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_1/\txi_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_1/\txi_reg[1] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:34 ; elapsed = 00:01:38 . Memory (MB): peak = 1199.344 ; gain = 865.867
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:25 ; elapsed = 00:01:33 . Memory (MB): peak = 1163.996 ; gain = 832.043
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -211,61 +309,70 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+------+-------------------------------+------------+----------+
-|      |RTL Partition                  |Replication |Instances |
-+------+-------------------------------+------------+----------+
-|1     |MAC_PalingSerius__GB0          |           1|     33600|
-|2     |muxpart__1026_MAC_PalingSerius |           1|     32736|
-|3     |MAC_PalingSerius__GB2          |           1|     24864|
-|4     |MAC_PalingSerius__GB3          |           1|     31104|
-|5     |MAC_PalingSerius__GB4          |           1|     38880|
-|6     |MAC_PalingSerius__GB5          |           1|     25872|
-|7     |MAC_PalingSerius__GB6          |           1|       449|
-|8     |MAC_PalingSerius__GB7          |           1|      1624|
-|9     |MAC_PalingSerius__GB8          |           1|       363|
-|10    |MAC_PalingSerius__GB9          |           1|      1267|
-|11    |MAC_PalingSerius__GB10         |           1|       423|
-+------+-------------------------------+------------+----------+
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |MAC_PalingSerius__GB0  |           1|     33312|
+|2     |MAC_PalingSerius__GB1  |           1|      9126|
+|3     |MAC_PalingSerius__GB2  |           1|     11584|
+|4     |MAC_PalingSerius__GB3  |           1|      5868|
+|5     |MAC_PalingSerius__GB4  |           1|     31490|
+|6     |MAC_PalingSerius__GB5  |           1|     15637|
+|7     |MAC_PalingSerius__GB6  |           1|     12516|
+|8     |MAC_PalingSerius__GB7  |           1|     10161|
+|9     |MAC_PalingSerius__GB8  |           1|     13372|
+|10    |MAC_PalingSerius__GB9  |           1|     15315|
+|11    |MAC_PalingSerius__GB10 |           1|      1161|
+|12    |MAC_PalingSerius__GB11 |           1|       395|
++------+-----------------------+------------+----------+
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:37 ; elapsed = 00:01:41 . Memory (MB): peak = 1199.344 ; gain = 865.867
+Finished Timing Optimization : Time (s): cpu = 00:01:28 ; elapsed = 00:01:36 . Memory (MB): peak = 1163.996 ; gain = 832.043
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+-----------------------+------------+----------+
 |      |RTL Partition          |Replication |Instances |
 +------+-----------------------+------------+----------+
-|1     |MAC_PalingSerius__GB0  |           1|     33096|
-|2     |MAC_PalingSerius__GB2  |           1|     10360|
-|3     |MAC_PalingSerius__GB3  |           1|     12960|
-|4     |MAC_PalingSerius__GB4  |           1|     16200|
-|5     |MAC_PalingSerius__GB7  |           1|      1335|
-|6     |MAC_PalingSerius__GB8  |           1|       363|
-|7     |MAC_PalingSerius__GB9  |           1|      1267|
-|8     |MAC_PalingSerius__GB10 |           1|       423|
+|1     |MAC_PalingSerius__GB0  |           1|     32976|
+|2     |MAC_PalingSerius__GB1  |           1|      4310|
+|3     |MAC_PalingSerius__GB2  |           1|      5256|
+|4     |MAC_PalingSerius__GB3  |           1|      4300|
+|5     |MAC_PalingSerius__GB4  |           1|      5840|
+|6     |MAC_PalingSerius__GB5  |           1|      4900|
+|7     |MAC_PalingSerius__GB6  |           1|      3863|
+|8     |MAC_PalingSerius__GB7  |           1|      7697|
+|9     |MAC_PalingSerius__GB8  |           1|      9900|
+|10    |MAC_PalingSerius__GB9  |           1|      8651|
+|11    |MAC_PalingSerius__GB10 |           1|      1161|
+|12    |MAC_PalingSerius__GB11 |           1|       395|
 +------+-----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:42 ; elapsed = 00:01:48 . Memory (MB): peak = 1199.344 ; gain = 865.867
+Finished Technology Mapping : Time (s): cpu = 00:01:35 ; elapsed = 00:01:43 . Memory (MB): peak = 1163.996 ; gain = 832.043
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+-----------------------+------------+----------+
 |      |RTL Partition          |Replication |Instances |
 +------+-----------------------+------------+----------+
-|1     |MAC_PalingSerius__GB0  |           1|     15588|
-|2     |MAC_PalingSerius__GB2  |           1|      9324|
-|3     |MAC_PalingSerius__GB3  |           1|     11664|
-|4     |MAC_PalingSerius__GB4  |           1|     14580|
-|5     |MAC_PalingSerius__GB7  |           1|      1199|
-|6     |MAC_PalingSerius__GB8  |           1|       254|
-|7     |MAC_PalingSerius__GB9  |           1|       531|
-|8     |MAC_PalingSerius__GB10 |           1|       310|
+|1     |MAC_PalingSerius__GB0  |           1|     15480|
+|2     |MAC_PalingSerius__GB1  |           1|      3768|
+|3     |MAC_PalingSerius__GB2  |           1|      4100|
+|4     |MAC_PalingSerius__GB3  |           1|      2472|
+|5     |MAC_PalingSerius__GB4  |           1|      5256|
+|6     |MAC_PalingSerius__GB5  |           1|      4412|
+|7     |MAC_PalingSerius__GB6  |           1|      3298|
+|8     |MAC_PalingSerius__GB7  |           1|      4774|
+|9     |MAC_PalingSerius__GB8  |           1|      5031|
+|10    |MAC_PalingSerius__GB9  |           1|      4370|
+|11    |MAC_PalingSerius__GB10 |           1|       381|
+|12    |MAC_PalingSerius__GB11 |           1|       289|
 +------+-----------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -279,11 +386,12 @@ Finished Flattening Before IO Insertion
 ---------------------------------------------------------------------------------
 Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (FSM_onehot_txState_reg[2]) is unused and will be removed from module MAC_PalingSerius.
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:49 ; elapsed = 00:01:56 . Memory (MB): peak = 1199.344 ; gain = 865.867
+Finished IO Insertion : Time (s): cpu = 00:01:42 ; elapsed = 00:01:50 . Memory (MB): peak = 1163.996 ; gain = 832.043
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -296,7 +404,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:49 ; elapsed = 00:01:56 . Memory (MB): peak = 1199.344 ; gain = 865.867
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:42 ; elapsed = 00:01:50 . Memory (MB): peak = 1163.996 ; gain = 832.043
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -308,25 +416,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:50 ; elapsed = 00:01:57 . Memory (MB): peak = 1199.344 ; gain = 865.867
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:43 ; elapsed = 00:01:51 . Memory (MB): peak = 1163.996 ; gain = 832.043
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:50 ; elapsed = 00:01:57 . Memory (MB): peak = 1199.344 ; gain = 865.867
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:43 ; elapsed = 00:01:51 . Memory (MB): peak = 1163.996 ; gain = 832.043
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:50 ; elapsed = 00:01:57 . Memory (MB): peak = 1199.344 ; gain = 865.867
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:43 ; elapsed = 00:01:52 . Memory (MB): peak = 1163.996 ; gain = 832.043
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:50 ; elapsed = 00:01:57 . Memory (MB): peak = 1199.344 ; gain = 865.867
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:43 ; elapsed = 00:01:52 . Memory (MB): peak = 1163.996 ; gain = 832.043
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -343,14 +451,14 @@ Report Cell Usage:
 |      |Cell  |Count |
 +------+------+------+
 |1     |BUFG  |     1|
-|2     |LUT2  |     3|
-|3     |LUT3  |  3578|
-|4     |LUT4  |    15|
-|5     |LUT5  |   339|
-|6     |LUT6  | 10516|
+|2     |LUT2  |    12|
+|3     |LUT3  |  3289|
+|4     |LUT4  |   334|
+|5     |LUT5  |  1241|
+|6     |LUT6  |  9706|
 |7     |MUXF7 |  4352|
 |8     |MUXF8 |  2176|
-|9     |FDRE  | 32861|
+|9     |FDRE  | 32895|
 |10    |IBUF  |    63|
 |11    |OBUF  |    41|
 +------+------+------+
@@ -359,32 +467,32 @@ Report Instance Areas:
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       | 53945|
+|1     |top      |       | 54110|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:50 ; elapsed = 00:01:57 . Memory (MB): peak = 1199.344 ; gain = 865.867
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:43 ; elapsed = 00:01:52 . Memory (MB): peak = 1163.996 ; gain = 832.043
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 21 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:50 ; elapsed = 00:01:58 . Memory (MB): peak = 1199.344 ; gain = 865.867
-Synthesis Optimization Complete : Time (s): cpu = 00:01:50 ; elapsed = 00:01:58 . Memory (MB): peak = 1199.344 ; gain = 865.867
+Synthesis finished with 0 errors, 0 critical warnings and 440 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:43 ; elapsed = 00:01:52 . Memory (MB): peak = 1163.996 ; gain = 832.043
+Synthesis Optimization Complete : Time (s): cpu = 00:01:43 ; elapsed = 00:01:52 . Memory (MB): peak = 1163.996 ; gain = 832.043
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 6528 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 WARNING: [Netlist 29-101] Netlist 'MAC_PalingSerius' is not ideal for floorplanning, since the cellview 'MAC_PalingSerius' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1219.914 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1227.191 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-23 Infos, 22 Warnings, 0 Critical Warnings and 0 Errors encountered.
+21 Infos, 124 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:00 ; elapsed = 00:02:08 . Memory (MB): peak = 1219.914 ; gain = 893.828
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1219.914 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:53 ; elapsed = 00:02:02 . Memory (MB): peak = 1227.191 ; gain = 899.953
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 1227.191 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'D:/Virtex/FPGA/MAC_Serius/MAC_Serius.runs/synth_1/MAC_PalingSerius.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1219.914 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1227.191 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file MAC_PalingSerius_utilization_synth.rpt -pb MAC_PalingSerius_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Sep 13 16:05:33 2019...
+INFO: [Common 17-206] Exiting Vivado at Tue Sep 17 13:23:29 2019...
