@@ -16,7 +16,10 @@ module	MAC_PalingSerius
            // Users to add ports here
            // No user ports (yet) in this design
            // User ports ends
-
+           output wire [7:0] txData,
+           output wire txClock,
+           input wire [7:0] rxData,
+           input wire rxClock,
            // Do not modify the ports beyond this line
            // Global Clock Signal
            input wire  S_AXI_ACLK,
@@ -369,10 +372,11 @@ assign	unused = { S_AXI_AWPROT, S_AXI_ARPROT,
 reg [15:0]txLenght=400, rxLenght=0;
 reg [2:0] txState,rxState;
 
-localparam idle =3'b0;
-localparam start =3'b001;
-localparam crc =3'b110;
-localparam finish =3'b111;
+localparam idle =3'd0;
+localparam start =3'd1;
+localparam crc =3'd2;
+localparam transfer=3'd3;
+localparam finish =3'd7;
 
 integer txi=0;
 
@@ -386,11 +390,16 @@ reg [15:0] txCRCresult,rxCRCresult;
 
 reg [11:0] i;
 
+reg [7:0] txDataReg;
+
+localparam txHL=11'd4;
+
 //urusan assign txBuff;
 always @( posedge S_AXI_ACLK ) begin //block A
     if (!S_AXI_ARESETN) begin
         txi<=0;
         txCRCreset<=1'b0;
+        txState<=idle;
     end
     else begin
         case(txState)
@@ -403,22 +412,28 @@ always @( posedge S_AXI_ACLK ) begin //block A
             end
             start: begin
                 for(i=1;i<1540;i=i+4) begin
-                    txBuff[i/4]<=slv_mem[i/4];
+                    txBuff[i+txHL]<=slv_mem[i/4][31-((i%4)*8)-:8];
                 end
+                txBuff[txHL-2]<=txLenght[15:8];
+                txBuff[txHL-1]<=txLenght[7:0];
+                txLenght<=txLenght+4;
                 txCRCreset<=1'b1;
-                txCRCIn<=txBuff[0][31-:8];
+                txCRCIn<=txBuff[0];
                 txCRCi<=1;
                 txState<=crc;
             end
             crc: begin
                 if(txCRCi<txLenght) begin
                     txCRCi<=txCRCi+1;
-                    txCRCIn<=txBuff[txCRCi/4][31-((txCRCi%4)*8)-:8];
+                    txCRCIn<=txBuff[txCRCi];
                 end
                 else begin
                     txCRCresult<=txCRCout;
                     txCRCreset<=1'b0;
                 end
+            end
+            transfer: begin
+                
             end
             finish: begin
                 txControl[0]<=0;
@@ -428,9 +443,14 @@ always @( posedge S_AXI_ACLK ) begin //block A
         endcase
 
     end
-    //    if (!readyWrite) begin
-    //        slv_mem[511][0]<=1'b0;
-    //    end
+end
+
+always @( posedge S_AXI_ACLK ) begin
+    if (!S_AXI_ARESETN) begin
+        txi<=0;
+        txCRCreset<=1'b0;
+        txState<=idle;
+    end
 end
 
 crc16 txCRC(

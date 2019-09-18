@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1568701272">
+<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1761-2" LaunchTime="1568781158">
   <File Type="PA-TCL" Name="MAC_PalingSerius.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="MAC_PalingSerius_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="MAC_PalingSerius_reports.tcl"/>
@@ -35,6 +35,14 @@
         <Attr Name="ImportPath" Val="$PPRDIR/../../../LiFi/FPGA/ip_repo/CRC16/CRC16.srcs/sources_1/new/crc_tab.mem"/>
         <Attr Name="ImportTime" Val="1566194681"/>
         <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/ip/fifo_generator_0/fifo_generator_0.xci">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
