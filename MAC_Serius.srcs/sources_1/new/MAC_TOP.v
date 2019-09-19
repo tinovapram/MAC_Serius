@@ -17,7 +17,7 @@ module	MAC_PalingSerius
            // No user ports (yet) in this design
            // User ports ends
            output wire [7:0] txData,
-           output wire txClock,
+           input wire txClock,
            input wire [7:0] rxData,
            input wire rxClock,
            // Do not modify the ports beyond this line
@@ -378,14 +378,12 @@ localparam crc =3'd2;
 localparam transfer=3'd3;
 localparam finish =3'd7;
 
-localparam headerLenght;
-
-
 integer txi=0;
 
 reg [7:0] txCRCIn=0,rxCRCIn=0;
 wire [15:0] txCRCout=0,rxCRCout=0;
 wire CRCclock;
+assign CRCclock = ~S_AXI_ACLK;
 reg txCRCreset=0,rxCRCreset=0;
 
 reg [15:0] txCRCi=0,rxCRCi=0;
@@ -394,8 +392,10 @@ reg [15:0] txCRCresult,rxCRCresult;
 reg [11:0] i;
 
 reg [7:0] txDataReg;
-
+assign txData = txDataReg;
 localparam txHL=11'd4;
+
+reg a2b=0,b2a=0;
 
 //urusan assign txBuff;
 always @( posedge S_AXI_ACLK ) begin //block A
@@ -403,6 +403,7 @@ always @( posedge S_AXI_ACLK ) begin //block A
         txi<=0;
         txCRCreset<=1'b0;
         txState<=idle;
+        a2b<=1'b0;
     end
     else begin
         case(txState)
@@ -414,11 +415,13 @@ always @( posedge S_AXI_ACLK ) begin //block A
                 end
             end
             start: begin
-                for(i=1;i<1540;i=i+4) begin
+                for(i=0;i<1540;i=i+4) begin
                     txBuff[i+txHL]<=slv_mem[i/4][31-((i%4)*8)-:8];
                 end
-                txBuff[txHL-2]<=txLenght[15:8];
-                txBuff[txHL-1]<=txLenght[7:0];
+                txBuff[2]<=txLenght[15:8];
+                txBuff[3]<=txLenght[7:0];
+                txBuff[0]<=8'hFF;
+                txBuff[1]<=8'hFF;
                 txLenght<=txLenght+4;
                 txCRCreset<=1'b1;
                 txCRCIn<=txBuff[0];
@@ -433,26 +436,69 @@ always @( posedge S_AXI_ACLK ) begin //block A
                 else begin
                     txCRCresult<=txCRCout;
                     txCRCreset<=1'b0;
+                    a2b<=1'b1;
+                    txState<=transfer;
                 end
             end
             transfer: begin
-                
+                if(b2a==1'b1) begin
+                    txState<=finish;
+                    a2b<=1'b0;
+                end
             end
             finish: begin
+                txState<=idle;
                 txControl[0]<=0;
             end
             default:
                 txState<=0;
         endcase
-
     end
 end
 
-always @( posedge S_AXI_ACLK ) begin
+reg bState;
+reg [15:0] txTFi=0;
+reg [15:0] rxTFi=0;
+
+always @( negedge txClock ) begin // block B
     if (!S_AXI_ARESETN) begin
-        txi<=0;
-        txCRCreset<=1'b0;
-        txState<=idle;
+        txTFi<=0;
+        txDataReg<=8'h0;
+        bState<=1'b0;
+        b2a<=1'b0;
+    end
+    else begin
+        case (bState)
+            1'b0: begin
+                if(a2b==1'b1) begin
+                    if(txTFi<(txLenght+2) ) begin
+                        if(txTFi==0) begin
+                            txDataReg<=8'haa;
+                        end
+                        else if(txTFi==1) begin
+                            txDataReg<=8'h55;
+                        end
+                        else begin
+                            txDataReg<=txBuff[txTFi-2];
+                        end
+                        txTFi<=txTFi+1;
+                    end
+                    else begin
+                        bState<=1'b1;
+                        b2a<=1'b1;
+                    end
+                end
+            end
+            1'b1: begin
+                if(a2b==1'b0) begin
+                    txTFi<=0;
+                    bState<=1'b0;
+                    b2a<=1'b0;
+                    txDataReg<=8'h0;
+                end
+            end
+            default bState<=1'b0;
+        endcase
     end
 end
 
