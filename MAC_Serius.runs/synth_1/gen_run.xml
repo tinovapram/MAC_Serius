@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7z020clg400-1" LaunchTime="1568862410">
   <File Type="PA-TCL" Name="aFifo.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="aFifo_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="aFifo_reports.tcl"/>
   <File Type="RDS-RDS" Name="aFifo.vds"/>
   <File Type="RDS-UTIL" Name="aFifo_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="aFifo_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="aFifo.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="aFifo_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="aFifo_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/GrayCounter.v">
