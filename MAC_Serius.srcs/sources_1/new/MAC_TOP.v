@@ -289,7 +289,7 @@ always @(*)
 
 reg [7:0] txBuff[0:1560];
 reg [7:0] rxBuff[0:1560];
-reg [31:0] txControl,rxControl;
+reg [31:0] txControl=0,rxControl=0;
 
 //
 // Actually (finally) write the data
@@ -321,7 +321,7 @@ always @( posedge S_AXI_ACLK )
         for(iw=0;iw<400;iw=iw+1) begin
             slv_mem[512+iw]<=rxBuff[iw];
         end
-        slv_mem[511]<=txControl;
+        if(txState==finish) slv_mem[511]<=txControl;
         slv_mem[1023]<=rxControl;
     end
 
