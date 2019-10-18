@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir D:/Virtex/FPGA/MAC_Serius/MAC_Serius.sim/sim_1/behav/xsim/xsim.dir/testbench_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Tue Sep 24 16:40:52 2019" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Fri Oct  4 16:19:56 2019" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2019.1 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2552052" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "fc21da0ca8565db6a678e8ed7860a7f3" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "ab347e5d87b44fd697ff0ea84cbb6ce9" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "50" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "65" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Windows Server 2016 or Windows 10" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz" -context "user_environment"
@@ -24,9 +24,9 @@ webtalk_add_data -client project -key system_ram -value "34.000 GB" -context "us
 webtalk_register_client -client xsim
 webtalk_add_data -client xsim -key Command -value "xsim" -context "xsim\\command_line_options"
 webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\usage"
-webtalk_add_data -client xsim -key runtime -value "7 us" -context "xsim\\usage"
+webtalk_add_data -client xsim -key runtime -value "70 us" -context "xsim\\usage"
 webtalk_add_data -client xsim -key iteration -value "0" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Time -value "0.14_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Memory -value "6156_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 3108755378 -regid "211762797_1777547105_210710093_401" -xml D:/Virtex/FPGA/MAC_Serius/MAC_Serius.sim/sim_1/behav/xsim/xsim.dir/testbench_behav/webtalk/usage_statistics_ext_xsim.xml -html D:/Virtex/FPGA/MAC_Serius/MAC_Serius.sim/sim_1/behav/xsim/xsim.dir/testbench_behav/webtalk/usage_statistics_ext_xsim.html -wdm D:/Virtex/FPGA/MAC_Serius/MAC_Serius.sim/sim_1/behav/xsim/xsim.dir/testbench_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Simulation_Time -value "0.64_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Memory -value "7516_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 3195984700 -regid "211762797_1777547105_210710093_401" -xml D:/Virtex/FPGA/MAC_Serius/MAC_Serius.sim/sim_1/behav/xsim/xsim.dir/testbench_behav/webtalk/usage_statistics_ext_xsim.xml -html D:/Virtex/FPGA/MAC_Serius/MAC_Serius.sim/sim_1/behav/xsim/xsim.dir/testbench_behav/webtalk/usage_statistics_ext_xsim.html -wdm D:/Virtex/FPGA/MAC_Serius/MAC_Serius.sim/sim_1/behav/xsim/xsim.dir/testbench_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

@@ -1,7 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module MAC_PalingSerius
-WARNING: [VRFC 10-3380] identifier 'txState' is used before its declaration [D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/new/MAC_TOP.v:324]
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sources_1/imports/new/crc16.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module crc16
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Virtex/FPGA/MAC_Serius/MAC_Serius.srcs/sim_1/new/tb.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module testbench

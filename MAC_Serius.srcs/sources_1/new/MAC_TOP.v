@@ -321,7 +321,8 @@ always @( posedge S_AXI_ACLK )
         for(iw=0;iw<400;iw=iw+1) begin
             slv_mem[512+iw]<=rxBuff[iw];
         end
-        if(txState==finish) slv_mem[511]<=txControl;
+        if(txState==finish)
+            slv_mem[511]<=txControl;
         slv_mem[1023]<=rxControl;
     end
 

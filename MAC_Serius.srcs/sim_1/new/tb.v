@@ -91,72 +91,94 @@ initial begin
     arstn = 0;
     i=0;
     #20 arstn=1;
-    #30 axi_write(12'd0,data[0]);
-//    for(i=0;i<=32'D122;i=i+1) begin
-//        #30 axi_write(i,data[i]);    //write i to slv_reg0\
-//        end
-    #30 axi_write(12'd510,32'h1c0);
-    #30 axi_write(12'd511,32'h1);
-    #30
+    #1500 axi_write(12'd0,data[0]);
+    for(i=1;i<=32'D122;i=i+1) begin
+        #1500 axi_write(i,data[i]);    //write i to slv_reg0\
+        end
+    #1500 axi_write(12'd510,32'h1c0);
+    #1500 axi_write(12'd511,32'h1);
+    #300
     #20 arstn = 0;
 //    #20 axi_write(i,data[i]);
 //    #20 axi_write(i,data[i]);
 //    $finish;
 end
 
-task axi_write;
-    input [31:0] addr;
+    task axi_write;
+    input [31:0] address;
     input [31:0] data;
     begin
-        #3 write_addr <= addr;    //Put write address on bus
-        write_data <= data;    //put write data on bus
-        write_addr_valid <= 1'b1;    //indicate address is valid
-        write_data_valid <= 1'b1;    //indicate data is valid
-        write_resp_ready <= 1'b1;    //indicate ready for a response
-        write_strb <= 4'hF;        //writing all 4 bytes
+        write_addr = address;
+        write_data = data;
+        write_addr_valid = 1'b1;
+        write_data_valid = 1'b1;
+        write_strb = 4'b1111;
 
-        //wait for one slave ready signal or the other
-        wait(write_data_ready || write_addr_ready);
-
-        @(posedge aclk); //one or both signals and a positive edge
-        if(write_data_ready&&write_addr_ready)//received both ready signals
-        begin
-            write_addr_valid<=0;
-            write_data_valid<=0;
-        end
-        else    //wait for the other signal and a positive edge
-        begin
-            if(write_data_ready)    //case data handshake completed
-            begin
-                write_data_valid<=0;
-                wait(write_addr_ready); //wait for address address ready
-            end
-            else if(write_addr_ready)   //case address handshake completed
-            begin
-                write_addr_valid<=0;
-                wait(write_data_ready); //wait for data ready
-            end
-            @ (posedge aclk);// complete the second handshake
-            write_addr_valid<=0; //make sure both valid signals are deasserted
-            write_data_valid<=0;
-        end
-
-        //both handshakes have occured
-        //deassert strobe
-        write_strb<=0;
-
-        //wait for valid response
-        wait(write_resp_valid);
-
-        //both handshake signals and rising edge
-        @(posedge aclk);
-
-        //deassert ready for response
-        write_resp_ready<=0;
-
-
-        //end of write transaction
+        wait (write_addr_ready && write_data_ready);
+        write_resp_ready = 1'b1;
+        
+        wait (write_resp_valid == 1'b1);
+        write_addr_valid = 1'b0;
+        write_data_valid = 1'b0;
+        
+        wait (write_resp_valid == 1'b0);
+        write_resp_ready = 1'b0;
     end
 endtask
+
+//task axi_write;
+//    input [31:0] addr;
+//    input [31:0] data;
+//    begin
+//        #3 write_addr <= addr;    //Put write address on bus
+//        write_data <= data;    //put write data on bus
+//        write_addr_valid <= 1'b1;    //indicate address is valid
+//        write_data_valid <= 1'b1;    //indicate data is valid
+//        write_resp_ready <= 1'b1;    //indicate ready for a response
+//        write_strb <= 4'hF;        //writing all 4 bytes
+
+//        //wait for one slave ready signal or the other
+//        wait(write_data_ready || write_addr_ready);
+
+//        @(posedge aclk); //one or both signals and a positive edge
+//        if(write_data_ready&&write_addr_ready)//received both ready signals
+//        begin
+//            write_addr_valid<=0;
+//            write_data_valid<=0;
+//        end
+//        else    //wait for the other signal and a positive edge
+//        begin
+//            if(write_data_ready)    //case data handshake completed
+//            begin
+//                write_data_valid<=0;
+//                wait(write_addr_ready); //wait for address address ready
+//            end
+//            else if(write_addr_ready)   //case address handshake completed
+//            begin
+//                write_addr_valid<=0;
+//                wait(write_data_ready); //wait for data ready
+//            end
+//            @ (posedge aclk);// complete the second handshake
+//            write_addr_valid<=0; //make sure both valid signals are deasserted
+//            write_data_valid<=0;
+//        end
+
+//        //both handshakes have occured
+//        //deassert strobe
+//        write_strb<=0;
+
+//        //wait for valid response
+//        wait(write_resp_valid);
+
+//        //both handshake signals and rising edge
+//        @(posedge aclk);
+
+//        //deassert ready for response
+//        write_resp_ready<=0;
+
+
+//        //end of write transaction
+//    end
+//endtask
 
 endmodule
